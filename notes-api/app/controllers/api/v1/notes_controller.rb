@@ -2,16 +2,31 @@ class Api::V1::NotesController < ApplicationController
   
   def index
     @notes = Note.all
-    render.json: @notes, status:200 
+    render json: @notes, status:200 
   end
 
   def show 
     @note = Note.find(params[:id])
-    render.json @note, status:200
+    render json: @note, status:200
   end
 
   def create 
-    @note = Note.create(note_params)
+    @note = Note.new(note_params)
+    if note.save 
+      render json: @note, status:200
+    else 
+      render json: {message: note.errors}, status: 400
+    end  
+  end
+
+  def update 
+    @note = Note.find(params[:id])
+    if @note 
+      @note.update(note_params)
+      render json: @note, status:200
+    else
+      render json: {message: note.errors}, status: 400
+    end 
   end
 
   private
@@ -19,7 +34,7 @@ class Api::V1::NotesController < ApplicationController
   def note_params
     params.require(:note).permit(:body)
   end
-  
+
 
   
 
