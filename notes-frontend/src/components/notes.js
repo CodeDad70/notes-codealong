@@ -7,9 +7,17 @@ class Notes {
   }
 
   fetchAndLoadNotes(){
-   this.adapter.getNotes().then(notes=>{
-     console.log(notes)
+   this.adapter.getNotes()
+    .then(notes=>{
+     notes.forEach(note=>this.notes.push(note))
+   })
+   .then(()=> {
+     this.render()
    })
   }
-
+  
+  render() {
+    const notesContainer = document.getElementById('notes-container')
+    notesContainer.innerHTML = this.notes.map(note=> `${note.title} - ${note.body} `)
+  }
 }
