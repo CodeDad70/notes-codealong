@@ -9,7 +9,7 @@ class Notes {
   fetchAndLoadNotes(){
    this.adapter.getNotes()
     .then(notes=>{
-     notes.forEach(note=>this.notes.push(note))
+     notes.forEach(note=>this.notes.push(new Note(note)))
    })
    .then(()=> {
      this.render()
@@ -17,6 +17,7 @@ class Notes {
   }
   
   render() {
+    console.log(this.notes)
     const notesContainer = document.getElementById('notes-container')
     notesContainer.innerHTML = this.notes.map(note=> `${note.title} - ${note.body} `)
   }
