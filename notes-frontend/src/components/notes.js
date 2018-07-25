@@ -2,9 +2,14 @@ class Notes {
   constructor() {
     this.notes= []
     this.adapter = new NotesAdapter()
-    // this.bindEventListeners()
+    this.initBindingsAndEventListeners()
     this.fetchAndLoadNotes()
   }
+
+  initBindingsAndEventListeners() {
+    this.notesContainer = document.getElementById('notes-container')
+  }
+
 
   fetchAndLoadNotes(){
    this.adapter.getNotes()
@@ -18,7 +23,6 @@ class Notes {
   
   render() {
     console.log(this.notes)
-    const notesContainer = document.getElementById('notes-container')
-    notesContainer.innerHTML = this.notes.map(note=> `${note.title} - ${note.body} `)
+    this.notesContainer.innerHTML = this.notes.map(note=> `<li> ${note.title}-${note.body}</li>`).join()
   }
 }
