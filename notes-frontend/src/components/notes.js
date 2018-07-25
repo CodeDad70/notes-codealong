@@ -15,9 +15,11 @@ class Notes {
 
   createNote(e){
     e.preventDefault()
-   const value = this.newNoteBody.value
-   this.adapter.createNote(value).then(note => {
+    const value = this.newNoteBody.value
+    this.adapter.createNote(value).then(note => {
      this.notes.push(new Note(note))
+     this.newNoteBody.value = ""
+     this.render()
    })
   }
 
