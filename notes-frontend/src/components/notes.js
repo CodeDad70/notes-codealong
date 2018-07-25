@@ -8,6 +8,14 @@ class Notes {
 
   initBindingsAndEventListeners() {
     this.notesContainer = document.getElementById('notes-container')
+    this.newNoteBody = document.getElementById('new-note-body')
+    this.noteForm = document.getElementById('new-note-form')
+    this.noteForm.addEventListener('submit', this.createNote.bind(this))
+  }
+
+  createNote(e){
+    e.preventDefault()
+    console.log(this.newNoteBody.value)
   }
 
 
@@ -23,6 +31,6 @@ class Notes {
   
   render() {
     console.log(this.notes)
-    this.notesContainer.innerHTML = this.notes.map(note=> `<li> ${note.title}-${note.body}</li>`).join()
+    this.notesContainer.innerHTML = this.notes.map(note=> note.renderLi()).join()
   }
 }

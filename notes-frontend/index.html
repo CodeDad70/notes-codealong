@@ -1,44 +1,36 @@
 <!doctype html>
 <html class="no-js" lang="">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Notes App</title>
-  <meta name="a simple notes app" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="styles/main.css">
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Notes App</title>
+    <meta name="a simple notes app" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
 
-<body>
-  <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
+  <body>
 
-  <!-- Add your site or application content here -->
     <div class="container">
       <h1>Note App</h1>
 
       <form id="new-note-form">
-        <input type="text"/>
-        <input type="submit"/>
+        <input type="text" name="note-body" id="new-note-body"/>
+        <input type="submit" value="save-note"/>
       </form>
 
-      <ul id="notes-container"> 
-      </ul>
-      
-    </div>
-  
- 
- 
-  
-  <script src="src/components/note.js"></script>
-  <script src="src/components/notes.js"></script>
-  <script src="src/components/app.js"></script>
-  <script src="src/adapters/NotesAdapter.js"></script> 
-  <script src="src/index.js"></script>
-  
+      <ul id="notes-container"> </ul>
 
-</body>
+    </div>
+    
+    <script src="src/components/note.js"></script>
+    <script src="src/components/notes.js"></script>
+    <script src="src/components/app.js"></script>
+    <script src="src/adapters/NotesAdapter.js"></script> 
+    <script src="src/index.js"></script>
+    
+
+  </body>
 
 </html>
