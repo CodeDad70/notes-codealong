@@ -6,6 +6,6 @@ class Note {
   }
 
   renderLi() {
-    return `<li>${this.title} - ${this.body}</li>`
+    return `<li>${this.body}</li>`
   }
 }

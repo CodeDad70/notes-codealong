@@ -15,7 +15,10 @@ class NotesAdapter {
     }
     return fetch(this.baseUrl, {
       method: 'POST',
+      headers:  {
+        'content-type': 'application/json'
+      },
       body: JSON.stringify({note})
-    })
+    }).then(res => res.json()) 
   }
 }
