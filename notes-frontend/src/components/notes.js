@@ -15,7 +15,8 @@ class Notes {
 
   createNote(e){
     e.preventDefault()
-    console.log(this.newNoteBody.value)
+   const value = this.newNoteBody.value
+   this.adapter.createNote(value)
   }
 
 

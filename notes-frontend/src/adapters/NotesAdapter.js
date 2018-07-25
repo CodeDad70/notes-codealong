@@ -8,4 +8,14 @@ class NotesAdapter {
       .then(res=>res.json()
     )
   }
+
+  createNote(value) {
+    const note = {
+      body: value
+    }
+    return fetch(this.baseUrl, {
+      method: 'POST',
+      body: JSON.stringify({note})
+    })
+  }
 }
