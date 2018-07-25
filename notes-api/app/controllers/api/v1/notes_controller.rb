@@ -12,7 +12,7 @@ class Api::V1::NotesController < ApplicationController
 
   def create 
     @note = Note.new(note_params)
-    if note.save 
+    if @note.save 
       render json: @note, status:200
     else 
       render json: {message: note.errors}, status: 400
@@ -20,9 +20,8 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def update 
-    @note = Note.find(params[:id])
-    if @note 
-      @note.update(note_params)
+    @note = Note.find(params[:id]) 
+    if @note.update(note_params)
       render json: @note, status:200
     else
       render json: {message: note.errors}, status: 400
